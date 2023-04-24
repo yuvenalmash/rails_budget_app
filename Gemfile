@@ -64,6 +64,9 @@ group :development do
   # gem "spring"
 end
 
+# Use Devise for authentication
+gem 'devise'
+
 group :test do
   # Use system testing [https://guides.rubyonrails.org/testing.html#system-testing]
   gem 'capybara'
