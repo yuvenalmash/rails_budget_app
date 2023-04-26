@@ -1,9 +1,13 @@
-<h1> Moolah Haven </h1>
-
-<% if user_signed_in? %>
-  <%= button_to "Log out", destroy_user_session_path, method: :delete %>
-<% else %>
-
-  <%= button_to "Log in", new_user_session_path, method: :get, class: "btn btn-2" %>
-  <%= button_to "Sign up", new_user_registration_path, method: :get, class: "btn btn-3" %>
-<% end %>
+<section class="flex flex-col">
+  <% if user_signed_in? %>
+    <%= "categories" %>
+  <% else %>
+    <div class="flex flex-col h-screen relative">
+      <h1 class="text-5xl font-bold my-auto"> Moolah Haven </h1>
+      <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 w-full">
+        <%= button_to "Log in", new_user_session_path, method: :get, class: "btn bg-blue-500 text-white w-full hover:bg-blue-600" %>
+        <%= button_to "Sign up", new_user_registration_path, method: :get, class: "btn w-full hover:text-blue-500" %>
+      </div>
+    </div>
+  <% end %>
+</section>

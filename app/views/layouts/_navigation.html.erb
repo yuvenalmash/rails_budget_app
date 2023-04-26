@@ -1,0 +1,46 @@
+<% if !user_signed_in? && current_page?(root_path) %>
+  <nav class="hidden">
+  </nav>
+<% else %>
+  <nav class="flex flex-col justify-between gap-6 bg-blue-600 text-white px-6 pt-4">
+    <div class="flex items-center justify-between text-2xl font-bold">
+      <% if user_signed_in? && current_page?(root_path) %>
+        <button id="hamburger-btn" class="nav-link-top" type="button">☰</button>
+        <h2> Categories </h2>
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+      <% elsif user_signed_in? %>
+        <%= link_to "↩", :back %>
+        <h2> <%= "#{controller_name}" %> </h2>
+
+      <% else %>
+        <% if controller_name == "registrations" %>
+          <% title = "Sign up" %>
+          <%= link_to "↩", root_path %>
+          <h2> <%= "#{title}" %> </h2>
+          <p>⋮</p>
+        <% elsif controller_name == "sessions" %>
+          <% title = "Log in" %>
+          <%= link_to "↩", root_path %>
+          <h2> <%= "#{title}" %> </h2>
+          <p>⋮</p>
+        <% end %>
+      <% end %>
+    </div>
+
+    <div class="flex items-center justify-end gap-6">
+      <% if user_signed_in? %>
+        <%= link_to "Most Recent", "#", class: "nav-bottom hover:text-blue-500" %>
+        <%= link_to "Most Ancient", "#", class: "nav-bottom hover:text-blue-500" %>
+      <% end %>
+    </div>
+
+    <div id="popup" class="hidden absolute top-0 left-0 right-0 bottom-0 bg-blue-600 text-white px-6 py-4">
+      <a href="#" class="text-3xl absolute top-0 right-0 mr-4 mt-2" id="close-popup-btn">&times;</a>
+      <ul>
+        <li><%= link_to "Home", root_path %></li>
+        <li><%= button_to "Log out", destroy_user_session_path, method: :delete %></li>
+      </ul>
+    </div>
+  </nav>
+  <% end %>
