@@ -4,7 +4,7 @@
 <% else %>
   <nav class="flex flex-col justify-between gap-6 bg-blue-600 text-white px-6 pt-4">
     <div class="flex items-center justify-between text-2xl font-bold">
-      <% if user_signed_in? && current_page?(root_path) %>
+      <% if user_signed_in? && current_page?(categories_path) %>
         <button id="hamburger-btn" class="nav-link-top" type="button">☰</button>
         <h2> Categories </h2>
         <i class="fa-solid fa-magnifying-glass"></i>
