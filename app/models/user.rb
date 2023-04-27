@@ -6,8 +6,9 @@ class User < ApplicationRecord
          :recoverable,
          :rememberable,
          :validatable
-  has_many :expenses, foreign_key: :author_id
-  has_many :categories, through: :expenses
+  has_many :expenses, foreign_key: :author_id, dependent: :destroy
+  has_many :category_expenses, through: :expenses
+  has_many :categories, -> { distinct }, through: :category_expenses
 
   validates :name, presence: true
   validates :email, presence: true, uniqueness: true
@@ -15,6 +16,6 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, length: { minimum: 6 }
 
   def admin?
-    role == 'admin'
+    role == "admin"
   end
 end
