@@ -1,0 +1,8 @@
+<section class="w-full max-w-lg bg-white shadow-md rounded-lg p-6">
+  <ul class="divide-y">
+    <% @categories.each do |category| %>
+      <%= render category %>
+    <% end %>
+  </ul>
+  <%= link_to "New Category", new_category_path, class: "bg-green-600 p-5 mt-6 w-full text-center text-white font-bold rounded-lg hover:bg-green-500" %>
+</section>

@@ -1,0 +1,6 @@
+<li class="flex items-center py-2 px-4 border-b rounded-lg hover:bg-gray-100">
+  <%= link_to category_path(category) do %>
+    <i class="<%= category.icon %> p-4 mr-2"></i>
+    <%= category.name %>
+  <% end %>
+</li>
