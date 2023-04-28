@@ -1,0 +1,16 @@
+<%# expense show page %>
+<section class="flex flex-col w-full max-w-lg bg-white shadow-md rounded-lg p-6">
+  <h1 class="text-3xl font-semibold pb-5">
+    <%= @expense.name %>
+  </h1>
+  <ul class="pb-5">
+    <li class="flex items-center py-2 px-4 border-b rounded-lg hover:bg-gray-100 gap-4">
+      <strong>Amount:</strong>
+      <%= number_to_currency(@expense.amount) %>
+    </li>
+    <li class="flex items-center py-2 px-4 border-b rounded-lg hover:bg-gray-100 gap-4">
+      <strong>Categories:</strong>
+      <%= @expense.categories.map(&:name).join(", ") %>
+    </li>
+  </ul>
+</section>

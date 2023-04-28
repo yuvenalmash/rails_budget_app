@@ -1,0 +1,19 @@
+<section class="flex flex-col w-full max-w-lg bg-white shadow-md rounded-lg p-6">
+  <div class="flex items-center justify-between pb-5 text-3xl font-semibold w-full border-b">
+    <%= @category.name %> Expenses
+    -
+    <%= number_to_currency(@category.total_expenses)%>
+  </div>
+  <ul>
+    <% @expenses.each do |expense| %>
+      <li class="flex items-center py-2 px-4 border-b rounded-lg hover:bg-gray-100">
+        <%= link_to category_expense_path(@category, expense), class: "w-full flex items-center" do %>
+          <i class="<%= @category.icon %> p-4 mr-2 w-1/4"></i>
+          <%= content_tag :span, expense.name, class: "w-2/4" %>
+          <%= content_tag :span, number_to_currency(expense.amount), class: "w-1/4 text-right" %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+  <%= link_to "New Expense", new_category_expense_path(@category), class: "bg-green-600 p-5 text-center text-white font-bold rounded-lg hover:bg-green-500" %>
+</section>
