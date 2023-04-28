@@ -5,14 +5,26 @@ class CategoriesController < ApplicationController
     @categories = current_user.user_categories
   end
 
+  def show
+    @category = Category.find(params[:id])
+    redirect_to category_expenses_path(@category)
+  end
+
   def new
-    @category = current_user.user_categories.build
+    @category = Category.new
   end
 
   def create
-    @category = current_user.user_categories.build(category_params)
-    if @category.save
-      redirect_to categories_path, notice: "Category created successfully"
+    if !current_user.dummy_data?(current_user.id)
+      current_user.dummy_data(current_user)
+    end
+    new_category = Category.new(category_params)
+    if new_category.save
+      current_user
+        .expenses
+        .find_by(name: "dummy-expense-#{current_user.id}")
+        .categories << new_category
+      redirect_to categories_path, notice: "Category was successfully created."
     else
       render :new
     end
