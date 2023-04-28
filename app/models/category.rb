@@ -28,6 +28,8 @@ class Category < ApplicationRecord
   end
 
   def category_expenses(current_user)
-    expenses.where.not(name: "dummy-expense-#{current_user.id}")
+    expenses
+      .where.not(name: "dummy-expense-#{current_user.id}")
+      .order(created_at: :desc)
   end
 end
