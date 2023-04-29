@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body class="flex flex-col min-h-screen bg-gray-100" data-current-user="<%= current_user.to_json %>">
+    <%= render "layouts/navigation" %>
+    <div id="flash-messages">
+      <p class="notice text-blue-600"><%= notice %></p>
+      <p class="alert text-red-600"><%= alert %></p>
+    </div>
+    <main class="flex-1 flex flex-col items-center justify-center md:container md:mx-auto h-full">
+      <%= yield %>
+    </main>
   </body>
 </html>
