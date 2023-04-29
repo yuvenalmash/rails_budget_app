@@ -15,19 +15,19 @@ class User < ApplicationRecord
   validates :password_confirmation, presence: true, length: { minimum: 6 }
 
   def admin?
-    role == "admin"
+    role == 'admin'
   end
 
   def user_categories
     categories.where.not(name: "dummy-categrory-#{id}")
   end
 
-  #create a dummy category then create dummy expense with that category
+  # create a dummy category then create dummy expense with that category
   def dummy_data(user)
     category =
       Category.new(
         name: "dummy-categrory-#{user.id}",
-        icon: "fa-solid fa-utensils"
+        icon: 'fa-solid fa-utensils'
       )
     category.save
     expense =

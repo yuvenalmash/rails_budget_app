@@ -15,16 +15,14 @@ class CategoriesController < ApplicationController
   end
 
   def create
-    if !current_user.dummy_data?(current_user.id)
-      current_user.dummy_data(current_user)
-    end
+    current_user.dummy_data(current_user) unless current_user.dummy_data?(current_user.id)
     new_category = Category.new(category_params)
     if new_category.save
       current_user
         .expenses
         .find_by(name: "dummy-expense-#{current_user.id}")
         .categories << new_category
-      redirect_to categories_path, notice: "Category was successfully created."
+      redirect_to categories_path, notice: 'Category was successfully created.'
     else
       render :new
     end

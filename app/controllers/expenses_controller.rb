@@ -21,7 +21,7 @@ class ExpensesController < ApplicationController
 
     if expense.save
       redirect_to category_expenses_path(@category),
-                  notice: "Expense was successfully created."
+                  notice: 'Expense was successfully created.'
     else
       render :new
     end
