@@ -1,0 +1,29 @@
+<%= form_with(model: expense, url: category_expenses_path(@category), local: true) do |form| %>
+  <div class="mb-4">
+    <%= form.label :name, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.text_field :name, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+  <div class="mb-4">
+    <%= form.label :amount, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%= form.number_field :amount, class: "shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline" %>
+  </div>
+
+  <%# add atleast one category %>
+  <div class="mb-4">
+    <%= form.label :category_id, class: "block text-gray-700 text-sm font-bold mb-2" %>
+    <%# create a collection of check boxes of @user_categories and assign the category_ids to the expense. @category is checked already %>
+    <%= form.collection_check_boxes :category_ids, @user_categories, :id, :name do |category| %>
+      <%= category.label class: "mr-4" do %>
+        <% if category.object.id == @category.id %>
+          <%= category.check_box(checked: true, class: "mr-2") %>
+        <% else %>
+          <%= category.check_box(class: "mr-2") %>
+        <% end %>
+        <%= category.text %>
+      <% end %>
+    <% end %>
+  </div>
+  <div class="flex items-center justify-between">
+    <%= form.submit "Create Expense", class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" %>
+  </div>
+<% end %>

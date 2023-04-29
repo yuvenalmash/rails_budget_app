@@ -42,9 +42,9 @@ RSpec.describe Expense, type: :model do
       expect(expense.macro).to eq(:belongs_to)
     end
 
-    it 'has and belongs to many categories' do
+    it 'has many categories' do
       expense = Expense.reflect_on_association(:categories)
-      expect(expense.macro).to eq(:has_and_belongs_to_many)
+      expect(expense.macro).to eq(:has_many)
     end
   end
 end

@@ -13,3 +13,14 @@
  *= require_tree .
  *= require_self
  */
+@import "font-awesome";
+
+$primary-color: #3778c2;
+$secondary-color: #5fb523;
+$text-color: #434b54;
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}

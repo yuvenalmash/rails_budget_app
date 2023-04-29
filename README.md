@@ -31,29 +31,19 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 [your_project_name] <a name="about-project"></a>
+# 📖 Moolah Haven <a name="about-project"></a>
 
-> Describe your project in 1 or 2 sentences.
+**Moolah Haven** is a mobile web application where you can manage your budget: you have a list of transactions associated with a category, so that you can see how much money you spent and on what.
 
-**[your_project__name]** is a...
-
+![ERD](./erd_diagram.png)
 ## 🛠 Built With <a name="built-with"></a>
 
 ### Tech Stack <a name="tech-stack"></a>
 
-> Describe the tech stack and include only the relevant sections that apply to your project.
-
 <details>
-  <summary>Client</summary>
+  <summary>Backend</summary>
   <ul>
-    <li><a href="https://reactjs.org/">React.js</a></li>
-  </ul>
-</details>
-
-<details>
-  <summary>Server</summary>
-  <ul>
-    <li><a href="https://expressjs.com/">Express.js</a></li>
+    <li><a href="https://rails.org/">Ruby on Rails</a></li>
   </ul>
 </details>
 
@@ -67,20 +57,16 @@
 <!-- Features -->
 
 ### Key Features <a name="key-features"></a>
-
-> Describe between 1-3 key features of the application.
-
-- **[key_feature_1]**
-- **[key_feature_2]**
-- **[key_feature_3]**
+- **Sign up** - for privacy reasons, you need to sign up to use the app
+- **Add category** - you can add a category to group your expenses
+- **Add expenses in a category** - you can add expenses to a category
+- **Persist data** - all data is persisted in a database
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 <!-- LIVE DEMO -->
 
 ## 🚀 Live Demo <a name="live-demo"></a>
-
-> Add a link to your deployed project.
 
 - [Live Demo Link](https://google.com)
 
@@ -90,7 +76,6 @@
 
 ## 💻 Getting Started <a name="getting-started"></a>
 
-> Describe how a new developer could make use of your project.
 
 To get a local copy up and running, follow these steps.
 
@@ -98,75 +83,54 @@ To get a local copy up and running, follow these steps.
 
 In order to run this project you need:
 
-<!--
-Example command:
-
-```sh
- gem install rails
-```
- -->
+- Ruby
+- Rails
+- PostgreSQL
 
 ### Setup
 
 Clone this repository to your desired folder:
 
-<!--
-Example commands:
-
 ```sh
   cd my-folder
-  git clone git@github.com:myaccount/my-project.git
+  git clone git@github.com:yuvenalmash/rails_budget_app.git
 ```
---->
 
 ### Install
 
-Install this project with:
-
-<!--
-Example command:
+Install the project dependancies:
 
 ```sh
-  cd my-project
-  gem install
+  cd rails_budget_app
+  bundle install
 ```
---->
+
+### Setup database
+
+Run the following command to setup the database:
+
+```sh
+  rails db:create
+  rails db:migrate
+```
 
 ### Usage
 
 To run the project, execute the following command:
 
-<!--
-Example command:
-
 ```sh
   rails server
 ```
---->
+-
 
 ### Run tests
 
 To run tests, run the following command:
 
-<!--
-Example command:
 
 ```sh
-  bin/rails test test/models/article_test.rb
+  rspec
 ```
---->
-
-### Deployment
-
-You can deploy this project using:
-
-<!--
-Example:
-
-```sh
-
-```
- -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -174,13 +138,11 @@ Example:
 
 ## 👥 Authors <a name="authors"></a>
 
-> Mention all of the collaborators of this project.
-
 👤 **Author1**
 
-- GitHub: [@githubhandle](https://github.com/githubhandle)
-- Twitter: [@twitterhandle](https://twitter.com/twitterhandle)
-- LinkedIn: [LinkedIn](https://linkedin.com/in/linkedinhandle)
+- GitHub: [@yuvenalmash](https://github.com/yuvenalmash)
+- Twitter: [@YuvenalNjoroge](https://twitter.com/YuvenalNjoroge)
+- LinkedIn: [yuvenal-njoroge](https://linkedin.com/in/yuvenal-njoroge)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -188,11 +150,7 @@ Example:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
-
-- [ ] **[new_feature_1]**
-- [ ] **[new_feature_2]**
-- [ ] **[new_feature_3]**
+- [ ] **[update UI for larger screens]**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -202,7 +160,7 @@ Example:
 
 Contributions, issues, and feature requests are welcome!
 
-Feel free to check the [issues page](../../issues/).
+Feel free to check the [issues page](https://github.com/yuvenalmash/rails_budget_app/issues).
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -210,9 +168,7 @@ Feel free to check the [issues page](../../issues/).
 
 ## ⭐️ Show your support <a name="support"></a>
 
-> Write a message to encourage readers to support your project
-
-If you like this project...
+If you like this project give it a ⭐️!
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -220,9 +176,7 @@ If you like this project...
 
 ## 🙏 Acknowledgments <a name="acknowledgements"></a>
 
-> Give credit to everyone who inspired your codebase.
-
-I would like to thank...
+I would like to thank [Gregoire Vella on Behance](https://www.behance.net/gregoirevella) for the design inspiration.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
